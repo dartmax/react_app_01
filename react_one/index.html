@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+<script type="text/babel">
+    class App extends React.Component {
+        constructor(){
+            super();
+            this.state = {
+                    person: {name: "", city: ""}
+                };
+    }
+    componentDidMount() {
+            this.setState({
+                person: {name: "Jack", city: "NewYork"}
+            });
+    }
+    componentDidUpdate(){
+        console.log("Компонент был обновлен", this.state);
+
+    }
+
+     render(){
+         return(
+            <div>
+               <p>City: {this.state.person.city}</p>
+               <p>Name: {this.state.person.name}</p>
+
+            </div>
+            );
+         }
+    }
+
+    ReactDOM.render(<App />,
+    document.getElementById('root')
+    );
+</script>
+</body>
+</html>
